@@ -1,0 +1,28 @@
+.titulo {
+  font-style: italic;
+  font-size: x-large;
+}
+.nav {
+  align-content: center;
+}
+
+li {
+  padding: 10px;
+  font-style: normal;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.price {
+  font-style: normal;
+  font-weight: bold;
+}
+
+h1 {
+  padding: 10px;
+  font-style: normal;
+  font-size: x-large;
+  font-weight: bold;
+  align-content: center;
+  text-align: center;
+}
