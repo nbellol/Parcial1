@@ -1,8 +1,13 @@
-.titulo {
-  font-style: italic;
-  font-size: x-large;
+@font-face {
+  font-family: satisfy;
+  src: url("./font/Satisfy-Regular.ttf");
 }
-.nav {
+
+.titulo {
+  font-family: satisfy;
+  font-size: xx-large;
+}
+.navbarSupportedContent {
   align-content: center;
 }
 
@@ -11,6 +16,9 @@ li {
   font-style: normal;
   font-size: x-large;
   font-weight: bold;
+}
+.cantidad {
+  padding: 5px;
 }
 
 .price {
@@ -25,4 +33,10 @@ h1 {
   font-weight: bold;
   align-content: center;
   text-align: center;
+}
+footer {
+  align-items: center;
+}
+btn .btn-default {
+  border-color: black;
 }

@@ -10,6 +10,13 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/specimen/Satisfy?query=Satisfy"
+    />
     <script src="./app.js"></script>
     <title>Pacial 1</title>
   </head>
@@ -17,55 +24,96 @@
     <header>
       <div class="row">
         <div class="col-sm-1 col-md-1 col-lg-1"></div>
-        <div class="col-sm-10 col-md-10 col-lg-10">
+        <div class="col-sm-9 col-md-9 col-lg-9">
           <p class="titulo">Restaurant & Lounge</p>
         </div>
-        <div class="col-sm-1 col-md-1 col-lg-1">
-          <svg
-            width="2em"
-            height="2em"
-            viewBox="0 0 16 16"
-            class="bi bi-cart"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <div class="row">
+            <img
+              id="cart"
+              src="https://i.imgur.com/1EKrQIi.png"
+              alt="cart"
+              width="50px"
             />
-          </svg>
-          <p id="cantidad"></p>
-        </div>
-      </div>
-      <div class="row">
-        <img
-          src="https://mk0hotellenouveowyay.kinstacdn.com/wp-content/uploads/2019/01/restaurant-7-mers-bandeau.jpg"
-          alt="menu"
-        />
-      </div>
-      <div class="row">
-        <div class="col-sm-2 col-md-2 col-lg-2"></div>
-        <div class="col-sm-8 col-md-8 col-lg-8">
-          <div class="nav">
-            <nav class="navbar navbar-inverse" id="navbar">
-              <li class="nav-item" onclick="handleClickBurger(container)">
-                Burgers
-              </li>
-              <li class="nav-item" onclick="handleClickTacos(container)">
-                Tacos
-              </li>
-              <li class="nav-item">Salads</li>
-              <li class="nav-item">Desserts</li>
-              <li class="nav-item">Drinks & Sides</li>
-            </nav>
+            <p id="cantidad">0 items</p>
           </div>
         </div>
-        <div class="col-sm-2 col-md-2 col-lg-2"></div>
+      </div>
+      <div class="row">
+        <img src="https://i.imgur.com/S8Ffdqa.png" alt="menu" width="100%" />
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li id="Burger" class="nav-item">
+                  <a class="nav-link" href="#"
+                    >Burgers <span class="sr-only">(current)</span></a
+                  >
+                </li>
+                <li id="Tacos" class="nav-item">
+                  <a class="nav-link" href="#">Tacos</a>
+                </li>
+                <li id="Salads" class="nav-item">
+                  <a class="nav-link" href="#">Salads</a>
+                </li>
+                <li id="Desserts" class="nav-item">
+                  <a class="nav-link" href="#">Desserts</a>
+                </li>
+                <li id="Drinks" class="nav-item">
+                  <a class="nav-link" href="#">Drinks & Sides</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
     </header>
     <main>
       <h1 id="Nombre"></h1>
       <div class="container-fluid" id="container"></div>
     </main>
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Cancel the Order</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <div class="modal-body">Are you sure about cancelling the order?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-dismiss="modal"
+              onclick="handleCancelOrder()"
+            >
+              Yes, I want to cancel the order
+            </button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              No, i want to continue adding products
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>Contact us: +57 3102105253 - info@restaurant.com - @restaurant</p>
+    </footer>
   </body>
 </html>
